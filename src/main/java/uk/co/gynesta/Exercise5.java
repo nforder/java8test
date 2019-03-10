@@ -8,17 +8,10 @@ public class Exercise5 {
     public static void main(String[] args) {
         System.out.println("hi");
 
-        Predicate<Integer> votingEligible = new Predicate<Integer>() {
-            @Override
-            public boolean test(Integer age) {
-                return age >= 18;
-            }
-        };
+        Predicate<String> validName1 = name1 -> name1.length() >= 10;
 
-        System.out.println("Eligble to vote at 17 = " + votingEligible.test(17));
-        System.out.println("Eligble to vote at 18 = " + votingEligible.test(18));
-        System.out.println("Eligble to vote at 19 = " + votingEligible.test(19));
+        System.out.println(validName1.negate().test("Kannan") ? "Valid name " : "Sorry name is too long ");
+        System.out.println(validName1.negate().test("Gnanasigamani") ? "Valid name " : "Sorry name is too long ");
 
     }
-
 }
